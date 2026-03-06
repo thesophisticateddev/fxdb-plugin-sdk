@@ -6,7 +6,7 @@
 
     <groupId>org.fxdb</groupId>
     <artifactId>fxdb-plugin-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>FXDB Plugin SDK</name>
     <description>SDK for developing plugins for the FXDB database client</description>
 
