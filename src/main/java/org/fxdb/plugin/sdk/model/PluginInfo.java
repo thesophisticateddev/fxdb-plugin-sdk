@@ -17,6 +17,8 @@ public class PluginInfo {
     private boolean enabled;
     private boolean installed;
     private List<String> dependencies;
+    private String downloadUrl;
+    private String repositoryUrl;
     private PluginStatus status;
 
     public enum PluginStatus {
@@ -121,6 +123,22 @@ public class PluginInfo {
 
     public void setDependencies(List<String> dependencies) {
         this.dependencies = dependencies;
+    }
+
+    public String getDownloadUrl() {
+        return downloadUrl;
+    }
+
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
+    }
+
+    public String getRepositoryUrl() {
+        return repositoryUrl;
+    }
+
+    public void setRepositoryUrl(String repositoryUrl) {
+        this.repositoryUrl = repositoryUrl;
     }
 
     public PluginStatus getStatus() {
