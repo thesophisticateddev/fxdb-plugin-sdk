@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,14 +24,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
 
       - name: Build and test
         run: mvn clean verify --batch-mode --no-transfer-progress
 
-      - name: Upload build artifact
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v4
-        with:
-          name: fxdb-plugin-sdk
-          path: target/fxdb-plugin-sdk-*.jar
-          retention-days: 30
+      - name: Publish to GitHub Packages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: mvn deploy -DskipTests --batch-mode --no-transfer-progress
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
