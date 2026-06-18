@@ -5,5 +5,6 @@ public enum Dialect {
     MYSQL,
     SQLITE,
     DUCKDB,
+    ORACLE,
     UNKNOWN
 }

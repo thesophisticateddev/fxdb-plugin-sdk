@@ -1,0 +1,1 @@
+## 1.1.0\n- Added profiler retrieval infrastructure: PlanFormat, RawPlan (sealed), PlanRetrievalStrategy, SingleStatementStrategy, PlanRetriever coordinator, registries, context, exceptions.\n- Java 17 clean; zero JavaFX / fxsql imports.\n
